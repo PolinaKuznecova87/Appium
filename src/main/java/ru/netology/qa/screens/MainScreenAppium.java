@@ -9,27 +9,26 @@ import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 
 public class MainScreenAppium {
-    @AndroidFindBy(id = "ru.netology.testing.uiautomator:id/buttonChange")
-    public MobileElement buttonChange;
 
-    @AndroidFindBy(id = "ru.netology.testing.uiautomator:id/textToBeChanged")
-    public MobileElement textChangedResult;
-
-    @AndroidFindBy(id = "ru.netology.testing.uiautomator:id/userInput")
+    @AndroidFindBy(id = "userInput")
     public MobileElement userInput;
 
-    @AndroidFindBy(id = "ru.netology.testing.uiautomator:id/buttonActivity")
-    public MobileElement openTextInActivity;
+    @AndroidFindBy(id = "buttonChange")
+    public MobileElement buttonChange;
 
-    @AndroidFindBy(id = "ru.netology.testing.uiautomator:id/text")
-    public MobileElement expectedText;
+    @AndroidFindBy(id = "textToBeChanged")
+    public MobileElement textToBeChanged;
 
+    @AndroidFindBy(id = "buttonActivity")
+    public MobileElement buttonActivity;
+
+    @AndroidFindBy(id = "text")
+    public  MobileElement activityText;
 
     private AppiumDriver driver;
 
-    public MainScreenAppium(AppiumDriver driver) {
+    public MainScreen(AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(15)), this);
     }
-
 }

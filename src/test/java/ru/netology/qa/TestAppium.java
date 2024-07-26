@@ -22,8 +22,8 @@ public class TestAppium {
     @BeforeEach
     public void setUp() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("platformName", "android");
-        desiredCapabilities.setCapability("appium:deviceName", "phone");
+        desiredCapabilities.setCapability("platformName", "Android");
+        desiredCapabilities.setCapability("appium:deviceName", "Some name");
         desiredCapabilities.setCapability("appium:appPackage", "ru.netology.testing.uiautomator");
         desiredCapabilities.setCapability("appium:appActivity", "ru.netology.testing.uiautomator.MainActivity");
         desiredCapabilities.setCapability("appium:ensureWebviewsHavePages", true);
@@ -33,8 +33,7 @@ public class TestAppium {
 
         URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
 
-        driver = new AndroidDriver(remoteUrl, desiredCapabilities);
-
+        driver = new AppiumDriver(remoteUrl, desiredCapabilities);
         mainScreenAppium = new MainScreenAppium(driver);
     }
 
