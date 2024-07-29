@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65f92c40-17ae-440e-a317-9255f430a5ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/qa/screens/MainScreenAppium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/qa/screens/MainScreenAppium.java" afterDir="false" />
+    <list default="true" id="65f92c40-17ae-440e-a317-9255f430a5ef" name="Changes" comment="changes test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/qa/screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/qa/screens/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/qa/screens/MainScreenAppium.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/qa/CalculatorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ru/netology/qa/TestAppium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/netology/qa/TestAppium.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +52,19 @@
       <option name="presentableId" value="Default" />
       <updated>1721846017447</updated>
     </task>
+    <task id="LOCAL-00001" summary="changes test">
+      <option name="closed" value="true" />
+      <created>1722019333387</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722019333387</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changes test" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes test" />
   </component>
 </project>

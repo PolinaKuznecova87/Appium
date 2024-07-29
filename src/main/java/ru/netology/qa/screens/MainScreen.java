@@ -4,32 +4,26 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
-import java.util.List;
 
 public class MainScreen {
 
-    @AndroidFindBy(xpath = "//*[contains(@resource-id,'digit')]")
-    private List<MobileElement> digitButtons;
+    @AndroidFindBy(id = "userInput")
+    public MobileElement userInput;
 
-    @AndroidFindBy(id = "digit_2")
-    @iOSXCUITFindBy(accessibility = "2")
-    public MobileElement digitTwoButton;
+    @AndroidFindBy(id = "buttonChange")
+    public MobileElement buttonChange;
 
-    @AndroidFindBy(accessibility = "plus")
-    @iOSXCUITFindBy(accessibility = "+")
-    public MobileElement plusSignButton;
+    @AndroidFindBy(id = "textToBeChanged")
+    public MobileElement textToBeChanged;
 
-    @AndroidFindBy(accessibility = "equals")
-    @iOSXCUITFindBy(accessibility = "=")
-    public MobileElement equalsSignButton;
+    @AndroidFindBy(id = "buttonActivity")
+    public MobileElement buttonActivity;
 
-    @AndroidFindBy(id = "result_final")
-    @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name=\"C\"]/preceding::XCUIElementTypeStaticText)[last()]")
-    public MobileElement resultField;
+    @AndroidFindBy(id = "text")
+    public  MobileElement activityText;
 
     private AppiumDriver driver;
 
@@ -38,5 +32,3 @@ public class MainScreen {
         PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(15)), this);
     }
 }
-
-

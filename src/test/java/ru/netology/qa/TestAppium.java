@@ -1,23 +1,16 @@
 package ru.netology.qa;
 
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import ru.netology.qa.screens.MainScreenAppium;
+import ru.netology.qa.screens.MainScreen;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-//она означает, что JUnit создаст один экземпляр теста AppiumTest
-// и будет вызывать методы для тестов в нем. Просто экономит память.
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-
 public class TestAppium {
-
-    private AndroidDriver driver;
-
-    MainScreenAppium mainScreenAppium;
+    private AppiumDriver driver;
 
     @BeforeEach
     public void setUp() throws MalformedURLException {
@@ -34,35 +27,28 @@ public class TestAppium {
         URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
 
         driver = new AppiumDriver(remoteUrl, desiredCapabilities);
-        mainScreenAppium = new MainScreenAppium(driver);
-    }
-
-
-    @Test
-    @Order(1)
-    public void testToSetAnEmptyString() {
-        mainScreenAppium.userInput.isDisplayed();
-        mainScreenAppium.userInput.click();
-        mainScreenAppium.userInput.sendKeys(" ");
-        String textToBeChanged = mainScreenAppium.textChangedResult.getText();
-        mainScreenAppium.buttonChange.isDisplayed();
-        mainScreenAppium.buttonChange.click();
-        mainScreenAppium.textChangedResult.isDisplayed();
-        Assertions.assertEquals(textToBeChanged, mainScreenAppium.textChangedResult.getText());
-
     }
 
     @Test
-    @Order(2)
-    public void testTextInANewActivity() throws InterruptedException {
-        mainScreenAppium.userInput.isDisplayed();
-        mainScreenAppium.userInput.click();
-        mainScreenAppium.userInput.sendKeys("Hello World");
-        mainScreenAppium.openTextInActivity.isDisplayed();
-        mainScreenAppium.openTextInActivity.click();
-        Thread.sleep(5000);
-        mainScreenAppium.expectedText.isDisplayed();
-        Assertions.assertEquals("Hello World", mainScreenAppium.expectedText.getText());
+    public void textBeforeAndAfterTest() {
+        MainScreen button = new MainScreen(driver);
+
+        String textBefore = button.textToBeChanged.getText();
+        button.userInput.sendKeys(" ");
+        button.buttonChange.click();
+        String textAfter = button.textToBeChanged.getText();
+        Assertions.assertEquals(textBefore, textAfter);
+    }
+
+    @Test
+    public void NewActivityTest() {
+        MainScreen button = new MainScreen(driver);
+
+        String newText = "Hi, Netology";
+        button.userInput.sendKeys(newText);
+        button.buttonActivity.click();
+        button.activityText.isDisplayed();
+        Assertions.assertEquals(newText, button.activityText.getText()) ;
     }
 
     @AfterEach
